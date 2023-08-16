@@ -1,0 +1,7 @@
+{
+  "extends": "tsconfig/library.json",
+  "exclude": ["templates"],
+  "compilerOptions": {
+    "rootDir": "."
+  }
+}
