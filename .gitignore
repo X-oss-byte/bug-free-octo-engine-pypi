@@ -1,0 +1,16 @@
+.npmrc
+node_modules/
+
+.next
+dist/
+*.tsbuildinfo
+.eslintcache
+.turbo
+.vercel
+.DS_Store
+.env
+vendor/
+data
+*.log
+todos.md
+.store
