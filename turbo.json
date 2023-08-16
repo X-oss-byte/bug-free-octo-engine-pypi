@@ -1,0 +1,47 @@
+{
+  "$schema": "./docs/public/schema.json",
+  "pipeline": {
+    "test": {
+      "outputs": ["coverage/**/*"],
+      "dependsOn": ["^build"]
+    },
+    "//#lint": {},
+    "check-types": {
+      "dependsOn": ["//#build:ts", "^build"]
+    },
+    "dev": {
+      "cache": false
+    },
+    "//#build:ts": {
+      "outputs": ["packages/**/dist"],
+      "dependsOn": []
+    },
+    "build": {
+      "outputs": ["dist/**/*", ".next/**/*"],
+      "dependsOn": ["^build"]
+    },
+    "//#check:prettier": {
+      "dependsOn": []
+    },
+    "//#check:toml": {
+      "dependsOn": []
+    },
+    "//#check:fmt": {
+      "dependsOn": ["//#check:prettier", "//#check:toml", "//#lint"]
+    },
+    "//#run-example": {
+      "inputs": [
+        "examples/**/*.ts",
+        "examples/**/*.tsx",
+        "examples/**/*.json",
+        "examples/**/*.js",
+        "examples/**/*.yaml",
+        "cli/**/*.go",
+        "cli/go.mod",
+        "cli/go.sum",
+        "./scripts/run-example.sh"
+      ],
+      "dependsOn": []
+    }
+  }
+}
