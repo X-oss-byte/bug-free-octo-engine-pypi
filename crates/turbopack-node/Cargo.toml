@@ -1,0 +1,37 @@
+[package]
+name = "turbopack-node"
+version = "0.1.0"
+description = "TBD"
+license = "MPL-2.0"
+edition = "2021"
+autobenches = false
+
+[lib]
+bench = false
+
+[features]
+# enable "HMR" for embedded assets
+dynamic_embed_contents = ["turbo-tasks-fs/dynamic_embed_contents"]
+
+[dependencies]
+anyhow = { workspace = true }
+futures = { workspace = true }
+futures-retry = { workspace = true }
+indexmap = { workspace = true, features = ["serde"] }
+mime = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+serde_qs = { workspace = true }
+tokio = { workspace = true, features = ["full"] }
+turbo-tasks = { workspace = true }
+turbo-tasks-env = { workspace = true }
+turbo-tasks-fs = { workspace = true }
+turbo-tasks-hash = { workspace = true }
+turbopack-core = { workspace = true }
+turbopack-dev-server = { workspace = true }
+turbopack-ecmascript = { workspace = true }
+url = { workspace = true }
+urlencoding = { workspace = true }
+
+[build-dependencies]
+turbo-tasks-build = { workspace = true }
