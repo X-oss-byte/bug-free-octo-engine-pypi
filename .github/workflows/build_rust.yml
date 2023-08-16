@@ -1,0 +1,116 @@
+name: Build Rust Wrapper
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_branch:
+        description: "Staging branch to run release from"
+
+env:
+  RELEASE_TURBO_CLI: true
+  RUST_BACKTRACE: 1
+
+jobs:
+  build-native:
+    strategy:
+      fail-fast: false
+      matrix:
+        settings:
+          - host: ubuntu-latest
+            container: clux/muslrust:stable
+            container-options: "--rm"
+            target: "x86_64-unknown-linux-musl"
+            lib-cache-key: turbo-lib-cross-${{ inputs.release_branch }}
+            setup: "apt update -y && apt install clang -y"
+          # - host: ubuntu-latest
+          #   container-options: "--platform=linux/arm64 --rm"
+          #   target: "aarch64-unknown-linux-musl"
+          #   lib-cache-key: turbo-lib-cross-${{ inputs.release_branch }}
+          #   rustflags: 'CC_aarch64_unknown_linux_musl=clang AR_aarch64_unknown_linux_musl=llvm-ar RUSTFLAGS="-Ctarget-feature=-crt-static -Clinker=aarch64-linux-gnu-gcc -Clink-arg=-lgcc"'
+          #   setup: "sudo apt-get install -y build-essential musl-tools clang llvm gcc-aarch64-linux-gnu"
+    name: Build - ${{ matrix.settings.host }} (${{ matrix.settings.target }})
+    runs-on: ${{ matrix.settings.host }}
+    container:
+      image: ${{ matrix.settings.container }}
+      options: ${{ matrix.settings.container-options }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: "${{ inputs.release_branch }}"
+
+      - name: Setup Container
+        if: ${{ matrix.settings.container-setup }}
+        run: ${{ matrix.settings.container-setup }}
+
+      - name: Install target
+        shell: bash
+        run: rustup target add ${{ matrix.settings.target }}
+
+      - name: Install
+        uses: actions-rs/toolchain@v1
+        if: ${{ matrix.settings.install }}
+        with:
+          profile: minimal
+          override: true
+          target: ${{ matrix.settings.target }}
+
+      # - name: Cache cargo registry
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: ~/.cargo/registry
+      #     key: ${{ matrix.settings.target }}-cargo-registry
+
+      # - name: Cache cargo index
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: ~/.cargo/git
+      #     key: ${{ matrix.settings.target }}-cargo-index
+
+      - name: Download artifact
+        id: download-artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          # Optional, workflow file name or ID
+          # If not specified, will be inferred from run_id (if run_id is specified), or will be the current workflow
+          workflow: build_go_lib.yml
+          # Optional, the status or conclusion of a completed workflow to search for
+          # Can be one of a workflow conclusion:
+          #   "failure", "success", "neutral", "cancelled", "skipped", "timed_out", "action_required"
+          # Or a workflow status:
+          #   "completed", "in_progress", "queued"
+          # Use the empty string ("") to ignore status or conclusion in the search
+          workflow_conclusion: success
+          # Optional, will use the specified branch. Defaults to all branches
+          branch: ${{ inputs.release_branch }}
+          # Optional, uploaded artifact name,
+          # will download all artifacts if not specified
+          # and extract them into respective subdirectories
+          # https://github.com/actions/download-artifact#download-all-artifacts
+          name: ${{ matrix.settings.lib-cache-key }}
+          # Optional, a directory where to extract artifact(s), defaults to the current directory
+          path: cli/libturbo
+          # Optional, choose how to exit the action if no artifact is found
+          # can be one of:
+          #  "fail", "warn", "ignore"
+          # default fail
+          if_no_artifact_found: fail
+
+      # TODO: re-enable this instead of the above when this runs together with the go library build
+      # - name: Download Cross-compiled Artifacts
+      #   uses: actions/download-artifact@v3
+      #   with:
+      #     name: ${{ matrix.settings.lib-cache-key }}
+      #     path: cli/libturbo
+      - name: Build Setup
+        shell: bash
+        if: ${{ matrix.settings.setup }}
+        run: ${{ matrix.settings.setup }}
+
+      - name: Build
+        run: ${{ matrix.settings.rustflags }} cargo build --release -p turbo --target ${{ matrix.settings.target }}
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: turbo-${{ matrix.settings.target }}
+          path: target/${{ matrix.settings.target }}/release/turbo*
