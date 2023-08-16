@@ -1,0 +1,126 @@
+name: Test
+on:
+  push:
+  pull_request:
+    branches: [main]
+
+env:
+  CARGO_TERM_COLOR: always
+  RUST_BACKTRACE: 1
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  rust_prepare:
+    name: Check rust crates
+    runs-on: ubuntu-latest-16-core-oss
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          target: wasm32-unknown-unknown
+
+      - name: Setup Go
+        uses: ./.github/actions/setup-go
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Run cargo check
+        uses: actions-rs/cargo@v1
+        with:
+          command: check
+          args: --workspace --all-targets
+
+      - name: Run cargo feature check for next-binding
+        run: |
+          # Known set of feature combinations we need to support
+          # next-swc/core
+          cargo check -p next-binding --features __swc_core_next_core,__swc_core_binding_napi_plugin,__swc_core_testing_transform,__swc_testing,__swc_transform_styled_components,__swc_transform_styled_jsx,__swc_transform_emotion,__swc_transform_modularize_imports
+          # next-swc/napi
+          cargo check -p next-binding --features __swc_core_binding_napi,__swc_core_binding_napi_plugin,__turbo_next_dev_server,__turbo_node_file_trace,__feature_mdx_rs
+          # next-swc/wasm
+          cargo check -p next-binding --features __swc_core_binding_wasm,__swc_core_binding_wasm_plugin,__feature_mdx_rs --target wasm32-unknown-unknown
+
+  rust_test:
+    needs: [rust_prepare]
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - name: ubuntu
+            runner: ubuntu-latest-16-core-oss
+            nextest: linux
+    runs-on: ${{ matrix.os.runner }}
+    name: Rust testing on ${{ matrix.os.name }}
+    steps:
+      - name: Set git to use LF line endings
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.eol lf
+        if: matrix.os.name == 'windows'
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+
+      - name: Setup Node.js
+        uses: ./.github/actions/setup-node
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Start Redis
+        uses: supercharge/redis-github-action@1.4.0
+        with:
+          redis-version: 6
+        if: matrix.os.name == 'ubuntu'
+
+      - name: Set Redis URL
+        run: echo "BULL_REDIS_CONNECTION=redis://127.0.0.1:6379" >> $GITHUB_ENV
+        if: matrix.os.name == 'ubuntu'
+
+      - name: Prepare toolchain on Windows
+        run: |
+          pnpx node-gyp install
+          echo 'node-linker = "hoisted"' > crates/turbopack/tests/node-file-trace/.npmrc
+        if: matrix.os.name == 'windows'
+
+      - name: Install tests dependencies
+        working-directory: crates/turbopack/tests/node-file-trace
+        run: pnpm install -r --side-effects-cache false
+
+      - name: Install tests dependencies in examples/with-yarn
+        working-directory: examples/with-yarn
+        run: npm install
+
+      - name: Install nextest
+        id: nextest-install
+        continue-on-error: true
+        run: curl -LsSf https://get.nexte.st/latest/${{ matrix.os.nextest }} | tar zxf - -C ${CARGO_HOME:-~/.cargo}/bin
+        shell: bash
+
+      - name: Install nextest (second try)
+        if: steps.nextest-install.outcome == 'failure'
+        run: curl -LsSf https://get.nexte.st/latest/${{ matrix.os.nextest }} | tar zxf - -C ${CARGO_HOME:-~/.cargo}/bin
+        shell: bash
+
+      - name: Run nextest
+        uses: actions-rs/cargo@v1
+        timeout-minutes: 120
+        with:
+          command: nextest
+          args: run -p next-dev
