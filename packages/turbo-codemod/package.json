@@ -30,7 +30,7 @@
     "meow": "^7.1.1",
     "ora": "4.1.1",
     "rimraf": "^3.0.2",
-    "semver": "^7.3.5",
+    "semver": "^7.5.2",
     "update-check": "^1.5.4"
   },
   "devDependencies": {
@@ -41,7 +41,7 @@
     "@types/node": "^16.11.12",
     "@types/semver": "^7.3.9",
     "eslint": "^7.23.0",
-    "semver": "^7.3.5",
+    "semver": "^7.5.2",
     "strip-ansi": "^6.0.1",
     "tsconfig": "workspace:*",
     "tsup": "^5.10.3",
