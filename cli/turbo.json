@@ -1,0 +1,25 @@
+{
+  "$schema": "../docs/public/schema.json",
+  "extends": ["//"],
+  "pipeline": {
+    "build": {
+      "env": ["GO_TAG", "RUNNER_OS"],
+      "outputs": [
+        "../target/debug/go-turbo",
+        "../target/debug/turbo",
+        "../target/debug/turbo.exe",
+        "../target/release/go-turbo",
+        "../target/release/turbo",
+        "../target/release/turbo.exe"
+      ],
+
+      "inputs": [
+        "{internal,cmd}/**/*.go",
+        "!**/*_test.go",
+        "../crates/turborepo*/**/*.rs", // Rust crates
+        "../crates/turborepo*/Cargo.toml",
+        "!../crates/**/target"
+      ]
+    }
+  }
+}
