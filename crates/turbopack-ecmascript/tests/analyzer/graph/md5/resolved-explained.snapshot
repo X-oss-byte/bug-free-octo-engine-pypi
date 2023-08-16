@@ -1,0 +1,312 @@
+a#14 = ???*0*
+- *0* arguments[1]
+  ⚠️  function calls are not analysed yet
+
+a#15 = ???*0*
+- *0* arguments[0]
+  ⚠️  function calls are not analysed yet
+
+a#16 = ???*0*
+- *0* arguments[0]
+  ⚠️  function calls are not analysed yet
+
+a#17 = ???*0*
+- *0* arguments[0]
+  ⚠️  function calls are not analysed yet
+
+a#18 = ???*0*
+- *0* arguments[0]
+  ⚠️  function calls are not analysed yet
+
+a#7 = ???*0*
+- *0* max number of linking steps reached
+
+b#14 = ???*0*
+- *0* arguments[2]
+  ⚠️  function calls are not analysed yet
+
+b#15 = ???*0*
+- *0* arguments[1]
+  ⚠️  function calls are not analysed yet
+
+b#16 = ???*0*
+- *0* arguments[1]
+  ⚠️  function calls are not analysed yet
+
+b#17 = ???*0*
+- *0* arguments[1]
+  ⚠️  function calls are not analysed yet
+
+b#18 = ???*0*
+- *0* arguments[1]
+  ⚠️  function calls are not analysed yet
+
+b#7 = ???*0*
+- *0* max number of linking steps reached
+
+bitRotateLeft = (...) => ???*0*
+- *0* unsupported expression
+
+bytes = (???*0* | ???*1*)
+- *0* arguments[0]
+  ⚠️  function calls are not analysed yet
+- *1* unknown new expression
+
+bytesToWords = (...) => output
+
+c#15 = ???*0*
+- *0* arguments[2]
+  ⚠️  function calls are not analysed yet
+
+c#16 = ???*0*
+- *0* arguments[2]
+  ⚠️  function calls are not analysed yet
+
+c#17 = ???*0*
+- *0* arguments[2]
+  ⚠️  function calls are not analysed yet
+
+c#18 = ???*0*
+- *0* arguments[2]
+  ⚠️  function calls are not analysed yet
+
+c#7 = ???*0*
+- *0* max number of linking steps reached
+
+cnt = ???*0*
+- *0* arguments[1]
+  ⚠️  function calls are not analysed yet
+
+d#15 = ???*0*
+- *0* arguments[3]
+  ⚠️  function calls are not analysed yet
+
+d#16 = ???*0*
+- *0* arguments[3]
+  ⚠️  function calls are not analysed yet
+
+d#17 = ???*0*
+- *0* arguments[3]
+  ⚠️  function calls are not analysed yet
+
+d#18 = ???*0*
+- *0* arguments[3]
+  ⚠️  function calls are not analysed yet
+
+d#7 = ???*0*
+- *0* max number of linking steps reached
+
+hex = (???*0* | ???*1*)
+- *0* hex
+  ⚠️  pattern without value
+- *1* ???*2*(
+        (hexTab["charAt"](???*3*) + hexTab["charAt"](???*4*)),
+        16
+    )
+  ⚠️  unknown callee
+- *2* FreeVar(parseInt)
+  ⚠️  unknown global
+- *3* unsupported expression
+- *4* unsupported expression
+
+hexTab = "0123456789abcdef"
+
+i#3 = (0 | ???*0*)
+- *0* updated with update expression
+
+i#5 = (???*0* | 0 | ((???*1* | 0 | ???*2*) + 8))
+- *0* i
+  ⚠️  pattern without value
+- *1* i
+  ⚠️  pattern without value
+- *2* (???*3* + 8)
+  ⚠️  nested operation
+- *3* i
+  ⚠️  circular variable reference
+
+i#7 = (???*0* | 0 | ((???*1* | 0 | ???*2*) + 16))
+- *0* i
+  ⚠️  pattern without value
+- *1* i
+  ⚠️  pattern without value
+- *2* (???*3* + 16)
+  ⚠️  nested operation
+- *3* i
+  ⚠️  circular variable reference
+
+i#9 = (???*0* | 0 | ((???*1* | 0 | ???*2*) + 1) | ((???*4* | 0 | ???*5*) + 8))
+- *0* i
+  ⚠️  pattern without value
+- *1* i
+  ⚠️  pattern without value
+- *2* (???*3* + 1)
+  ⚠️  nested operation
+- *3* i
+  ⚠️  circular variable reference
+- *4* i
+  ⚠️  pattern without value
+- *5* (???*6* + 1)
+  ⚠️  nested operation
+- *6* i
+  ⚠️  circular variable reference
+
+input#5 = ???*0*
+- *0* arguments[0]
+  ⚠️  function calls are not analysed yet
+
+input#9 = ???*0*
+- *0* arguments[0]
+  ⚠️  function calls are not analysed yet
+
+len = ???*0*
+- *0* arguments[1]
+  ⚠️  function calls are not analysed yet
+
+length32 = ???*0*
+- *0* unsupported expression
+
+length8 = ???*0*
+- *0* unsupported expression
+
+lsw = (???*0* + ???*1*)
+- *0* unsupported expression
+- *1* unsupported expression
+
+md5 = (...) => md5ToHexEncodedArray(wordsToMd5(bytesToWords(bytes), ???*0*))
+- *0* unsupported expression
+
+md5ToHexEncodedArray = (...) => output
+
+md5cmn = (...) => safeAdd(
+    bitRotateLeft(safeAdd(safeAdd(a, q), safeAdd(x, t)), s),
+    b
+)
+
+md5ff = (...) => md5cmn(???*0*, a, b, x, s, t)
+- *0* unsupported expression
+
+md5gg = (...) => md5cmn(???*0*, a, b, x, s, t)
+- *0* unsupported expression
+
+md5hh = (...) => md5cmn(???*0*, a, b, x, s, t)
+- *0* unsupported expression
+
+md5ii = (...) => md5cmn(???*0*, a, b, x, s, t)
+- *0* unsupported expression
+
+msg = ???*0*
+- *0* ???*1*(FreeVar(encodeURIComponent)(bytes))
+  ⚠️  unknown callee
+- *1* FreeVar(unescape)
+  ⚠️  unknown global
+
+msw = (???*0* + ???*1* + ???*2*)
+- *0* unsupported expression
+- *1* unsupported expression
+- *2* unsupported expression
+
+num = ???*0*
+- *0* arguments[0]
+  ⚠️  function calls are not analysed yet
+
+olda = ???*0*
+- *0* max number of linking steps reached
+
+oldb = ???*0*
+- *0* max number of linking steps reached
+
+oldc = ???*0*
+- *0* max number of linking steps reached
+
+oldd = ???*0*
+- *0* max number of linking steps reached
+
+output#5 = []
+
+output#9 = []
+
+q = ???*0*
+- *0* arguments[0]
+  ⚠️  function calls are not analysed yet
+
+s#14 = ???*0*
+- *0* arguments[4]
+  ⚠️  function calls are not analysed yet
+
+s#15 = ???*0*
+- *0* arguments[5]
+  ⚠️  function calls are not analysed yet
+
+s#16 = ???*0*
+- *0* arguments[5]
+  ⚠️  function calls are not analysed yet
+
+s#17 = ???*0*
+- *0* arguments[5]
+  ⚠️  function calls are not analysed yet
+
+s#18 = ???*0*
+- *0* arguments[5]
+  ⚠️  function calls are not analysed yet
+
+safeAdd = (...) => ???*0*
+- *0* unsupported expression
+
+t#14 = ???*0*
+- *0* arguments[5]
+  ⚠️  function calls are not analysed yet
+
+t#15 = ???*0*
+- *0* arguments[6]
+  ⚠️  function calls are not analysed yet
+
+t#16 = ???*0*
+- *0* arguments[6]
+  ⚠️  function calls are not analysed yet
+
+t#17 = ???*0*
+- *0* arguments[6]
+  ⚠️  function calls are not analysed yet
+
+t#18 = ???*0*
+- *0* arguments[6]
+  ⚠️  function calls are not analysed yet
+
+wordsToMd5 = (...) => [a, b, c, d]
+
+x#12 = ???*0*
+- *0* arguments[0]
+  ⚠️  function calls are not analysed yet
+
+x#14 = ???*0*
+- *0* arguments[3]
+  ⚠️  function calls are not analysed yet
+
+x#15 = ???*0*
+- *0* arguments[4]
+  ⚠️  function calls are not analysed yet
+
+x#16 = ???*0*
+- *0* arguments[4]
+  ⚠️  function calls are not analysed yet
+
+x#17 = ???*0*
+- *0* arguments[4]
+  ⚠️  function calls are not analysed yet
+
+x#18 = ???*0*
+- *0* arguments[4]
+  ⚠️  function calls are not analysed yet
+
+x#5 = (???*0* | ???*1*)
+- *0* x
+  ⚠️  pattern without value
+- *1* unsupported expression
+
+x#7 = ???*0*
+- *0* arguments[0]
+  ⚠️  function calls are not analysed yet
+
+y = ???*0*
+- *0* arguments[1]
+  ⚠️  function calls are not analysed yet
