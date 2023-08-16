@@ -1,0 +1,11 @@
+{
+  "name": "css.escape",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "author": {
+    "name": "Mathias Bynens",
+    "url": "https://mathiasbynens.be/"
+  },
+  "license": "MIT",
+  "version": "1.5.1"
+}
