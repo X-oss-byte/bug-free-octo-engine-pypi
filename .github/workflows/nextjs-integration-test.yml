@@ -1,0 +1,121 @@
+# Reusable workflow to execute certain version of Next.js integration tests
+# with turbopack.
+#
+# Refer test.yml for how this workflow is being initialized
+# - Workflow can specify `inputs.version` to specify which version of next.js to use, otherwise will use latest release version.
+name: Turbopack Next.js integration test
+
+on:
+  workflow_call:
+    inputs:
+      # Allow to specify Next.js version to run integration test against.
+      # If not specified, will use latest release version including canary.
+      version:
+        type: string
+      # The base of the test results to compare against. If not specified, will try to compare with latest main branch's test results.
+      diff_base:
+        type: string
+        default: "main"
+      force_post_to_slack:
+        type: boolean
+      # Skip posting to slack regardless of the conditions.
+      skip_post_to_slack:
+        type: boolean
+        default: false
+
+# Workflow-common env variables
+env:
+  # Enabling backtrace will makes snapshot tests fail
+  RUST_BACKTRACE: 0
+  NEXT_TELEMETRY_DISABLED: 1
+  # Path to the next-dev binary located in **docker container** image.
+  # To use this, set __INTERNAL_CUSTOM_TURBOPACK_BINARY to the path. Not being used currently.
+  NEXT_DEV_BIN: /work/next-dev
+  # Path to the custom next-swc bindings located in **docker container** image.
+  NEXT_BINDINGS_BIN: /work/packages/next-swc/native/next-swc.linux-x64-gnu.node
+  FAILED_TEST_LIST_PATH: /work/integration-test-data/test-results/main/failed-test-path-list.json
+  # Glob pattern to run specific tests with --turbo.
+  NEXT_DEV_TEST_GLOB: "*"
+  # pnpm version should match to what upstream next.js uses
+  PNPM_VERSION: 7.24.3
+
+jobs:
+  # First, build next-dev and Next.js both to execute across tests.
+  setup_nextjs:
+    name: Setup Next.js build
+    uses: ./.github/workflows/setup-nextjs-build.yml
+    with:
+      version: ${{ inputs.version }}
+
+  test_integration:
+    # This job name is being used in github action to collect test results. Do not change it, or should update
+    # ./.github/actions/next-integration-stat to match the new name.
+    name: Next.js integration test (integration)
+    runs-on: ubuntu-latest-8-core-oss
+    needs: [setup_nextjs]
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [16]
+    env:
+      # List of test files to run that expected to pass always. Whole test suite should pass.
+      TEST_FILES_LIST: |
+        test/integration/telemetry/test/page-features.test.js \
+        test/integration/trailing-slash-dist/test/index.test.js \
+        test/integration/trailing-slashes-href-resolving/test/index.test.js \
+        test/integration/trailing-slashes-rewrite/test/index.test.js \
+        test/integration/trailing-slashes/test/index.test.js \
+        test/integration/tsconfig-verifier/test/index.test.js \
+        test/integration/turbopack-unsupported-log/index.test.ts \
+        test/integration/turbotrace-with-webpack-worker/test/index.test.js \
+        test/integration/typeof-window-replace/test/index.test.js \
+        test/integration/typescript-app-type-declarations/test/index.test.js \
+        test/integration/typescript-baseurl/test/index.test.js \
+        test/integration/typescript-custom-tsconfig/test/index.test.js \
+        test/integration/typescript-external-dir/project/test/index.test.js
+
+    steps:
+      - uses: actions/cache/restore@v3
+        id: restore-build
+        with:
+          path: |
+            ./*
+          key: ${{ inputs.version }}-${{ github.sha }}
+          fail-on-cache-miss: true
+
+      - run: |
+          docker run --rm -v $(pwd):/work mcr.microsoft.com/playwright:v1.28.1-jammy /bin/bash -c "cd /work && ls && curl https://install-node.vercel.app/v16 | FORCE=1 bash && node -v && npm i -g pnpm@${PNPM_VERSION} && __INTERNAL_NEXT_DEV_TEST_TURBO_DEV=TRUE __INTERNAL_CUSTOM_TURBOPACK_BINDINGS=${NEXT_BINDINGS_BIN} __INTERNAL_NEXT_DEV_TEST_TURBO_GLOB_MATCH=${NEXT_DEV_TEST_GLOB} NEXT_TEST_SKIP_RETRY_MANIFEST=${FAILED_TEST_LIST_PATH} NEXT_TEST_CONTINUE_ON_ERROR=TRUE NEXT_E2E_TEST_TIMEOUT=240000 NEXT_TEST_JOB=1 xvfb-run node run-tests.js -c 1 $TEST_FILES_LIST >> /proc/1/fd/1"
+        name: Test Integration
+        continue-on-error: true
+        env:
+          RECORD_REPLAY_METADATA_TEST_RUN_TITLE: testIntegration / Group ${{ matrix.group }}
+          NEXT_INTEGRATION_TEST: true
+
+  # Collect integration test results from execute_tests,
+  # Store it as github artifact for next step to consume.
+  collect_nextjs_integration_stat:
+    needs: [test_integration]
+    name: Next.js integration test status report
+    runs-on: ubuntu-latest-8-core-oss
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Collect integration test stat
+        uses: ./.github/actions/next-integration-stat
+        with:
+          diff_base: ${{ inputs.diff_base }}
+        env:
+          NEXT_TURBO_FORCE_SLACK_UPDATE: "${{ inputs.force_post_to_slack }}"
+          NEXT_TURBO_FORCE_SKIP_SLACK_UPDATE: "${{ inputs.skip_post_to_slack }}"
+
+      - name: Store artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: |
+            nextjs-test-results.json
+            failed-test-path-list.json
+            slack-payload.json

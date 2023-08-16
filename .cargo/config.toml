@@ -1,0 +1,11 @@
+[env]
+CARGO_WORKSPACE_DIR = { value = "", relative = true }
+
+[target.x86_64-pc-windows-msvc]
+linker = "rust-lld"
+
+[alias]
+xtask = "run --package xtask --"
+
+[target.'cfg(all())']
+rustflags = ["--cfg", "tokio_unstable", "-Csymbol-mangling-version=v0", "-Aclippy::too_many_arguments"]
