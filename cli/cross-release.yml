@@ -1,0 +1,42 @@
+project_name: turbo
+before:
+  hooks:
+    - make compile-protos
+    - go mod tidy
+
+dist: dist-cross
+
+builds:
+  - id: turbo
+    main: ./cmd/turbo
+    tags:
+      - rust
+      - staticbinary
+    binary: bin/go-turbo
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.CommitDate}} -X main.builtBy=goreleaser
+    mod_timestamp: "{{ .CommitTimestamp }}"
+    env:
+      - CGO_ENABLED=1
+    hooks:
+      pre:
+        - cmd: make turborepo-ffi-install-{{ .Os }}-{{ .Arch }}
+          output: true
+    targets:
+      - linux_amd64
+    overrides:
+      - goos: linux
+        goarch: amd64
+        goamd64: v1
+        ldflags: -linkmode external -extldflags="-static" -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.CommitDate}} -X main.builtBy=goreleaser
+        env:
+          - CC=zig cc -target x86_64-linux-musl
+          - CXX=zig c++ -target x86_64-linux-musl
+
+archives:
+  - format: binary
+
+release:
+  disable: true
