@@ -1,0 +1,12 @@
+.next/
+build/
+dist/
+node_modules/
+target/
+
+/crates/turbopack/tests/snapshot/**/output/
+/examples/with-svelte
+
+pnpm-lock.yaml
+crates/next-core/js/src/compiled
+crates/turbopack/bench.json
