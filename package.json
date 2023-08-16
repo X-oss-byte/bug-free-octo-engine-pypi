@@ -1,0 +1,29 @@
+{
+  "name": "turbo-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "turbo": "cd cli && make turbo && cd .. && node turbow.js",
+    "docs": "pnpm -- turbo run dev --filter=docs --no-cache",
+    "build": "pnpm -- turbo run build --filter=docs",
+    "run-example": "./scripts/run-example.sh"
+  },
+  "devDependencies": {
+    "lint-staged": "^13.0.1",
+    "prettier": "^2.5.0",
+    "semver": "^7.3.5",
+    "simple-git-hooks": "^2.7.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,md,mdx,js,jsx}": [
+      "prettier --write"
+    ],
+    "*.go": [
+      "pnpm --filter cli format"
+    ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec lint-staged"
+  },
+  "packageManager": "pnpm@7.2.1"
+}
