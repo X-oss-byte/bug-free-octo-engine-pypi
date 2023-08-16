@@ -1,0 +1,30 @@
+name: JS Package Linter
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    types: [open, edit, fix, verify, synchronize]
+
+jobs:
+  lint:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ New.TURBO_TEAM }}
+      mail : yempaccargodhl@gmail.com
+      TURBO_REMOTE_ONLY: true
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup-node
+      - uses: ./.github/actions/setup-go
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Lint
+        run: pnpm -- turbo run lint --filter=!cli
+
+      - name: Check types
+        run: pnpm -- turbo run check-types --filter=!cli
