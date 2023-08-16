@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["AssetContent"],"struct":["AssetContentVc","AssetOption","AssetOptionVc","AssetVc","Assets","AssetsSet","AssetsSetVc","AssetsVc"],"trait":["Asset"],"type":["AssetContentReadRef","AssetOptionReadRef","AssetTraitRef","AssetsReadRef","AssetsSetReadRef"]};

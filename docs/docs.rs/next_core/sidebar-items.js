@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["create_app_source","create_page_source","create_web_entry_source","register"],"mod":["app_structure","env","manifest","next_client","next_config","next_image","next_server","next_shared","pages_structure","react_refresh","router","router_source","source_map"]};

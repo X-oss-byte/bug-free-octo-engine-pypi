@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["Rope","RopeBuilder","RopeReader","RopeVc"],"type":["RopeReadRef"]};

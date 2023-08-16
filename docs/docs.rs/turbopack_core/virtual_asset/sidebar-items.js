@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["VirtualAsset","VirtualAssetVc"],"type":["VirtualAssetReadRef"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["TransitionVc","TransitionsByName","TransitionsByNameVc"],"trait":["Transition"],"type":["TransitionTraitRef","TransitionsByNameReadRef"]};

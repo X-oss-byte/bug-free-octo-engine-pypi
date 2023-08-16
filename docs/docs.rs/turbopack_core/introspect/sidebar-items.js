@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["asset"],"struct":["IntrospectableChildren","IntrospectableChildrenVc","IntrospectableVc"],"trait":["Introspectable"],"type":["IntrospectableChildrenReadRef","IntrospectableTraitRef"]};

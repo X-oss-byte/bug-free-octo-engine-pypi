@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["ResolvePluginCondition","ResolvePluginConditionVc","ResolvePluginVc"],"trait":["ResolvePlugin"],"type":["ResolvePluginConditionReadRef","ResolvePluginTraitRef"]};

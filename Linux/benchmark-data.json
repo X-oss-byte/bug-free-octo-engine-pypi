@@ -1,0 +1,330 @@
+{
+  "lastUpdate": 1662048889199,
+  "repoUrl": "https://github.com/vercel/turborepo",
+  "entries": {
+    "Linux Benchmark": [
+      {
+        "commit": {
+          "author": {
+            "name": "Greg Soltis",
+            "username": "gsoltis",
+            "email": "greg.soltis@vercel.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "7bfa00ea4c2c51117e89d9a1bcd1d486d0c91753",
+          "message": "Run benchmarks, push data to tinybird and gh-pages (#1715)\n\nNew revision of the large monorepo benchmark. Still set to manual. Produces both benchmark-action-compatible json as well as tinybird-compatible ndjson.\n\nSends ndjson to tinybird and json to gh-pages.\n\nTested on my own fork of the repo.",
+          "timestamp": "2022-08-17T21:48:09Z",
+          "url": "https://github.com/vercel/turborepo/commit/7bfa00ea4c2c51117e89d9a1bcd1d486d0c91753"
+        },
+        "date": 1660840080522,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Clean Build",
+            "value": 711542,
+            "unit": "ms",
+            "range": "0"
+          },
+          {
+            "name": "Cached Build - No Change",
+            "value": 9358.8,
+            "unit": "ms",
+            "range": "1266"
+          },
+          {
+            "name": "Cached Build - Code Change",
+            "value": 9148,
+            "unit": "ms",
+            "range": "164"
+          },
+          {
+            "name": "Cached Build - Dependency Change",
+            "value": 35543,
+            "unit": "ms",
+            "range": "8749"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Greg Soltis",
+            "username": "gsoltis",
+            "email": "greg.soltis@vercel.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "5481b2bba3f11e287d39b5325000c3c426d2e542",
+          "message": "Add back symlinks in fs cache (#1453)\n\nThis brings back some behavior from before #1354. The filesystem cache will save all symlinks, and restore non-broken symlinks to files. Symlinks to directories continue to get restored as empty directories. Still TBD what we're going to do with broken symlinks in the filesystem cache, they currently are not restored.\n\nFor reference: the http cache saves and restores all symlinks.",
+          "timestamp": "2022-08-19T16:02:58Z",
+          "url": "https://github.com/vercel/turborepo/commit/5481b2bba3f11e287d39b5325000c3c426d2e542"
+        },
+        "date": 1660926678105,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Clean Build",
+            "value": 626763,
+            "unit": "ms",
+            "range": "0"
+          },
+          {
+            "name": "Cached Build - No Change",
+            "value": 9145.6,
+            "unit": "ms",
+            "range": "1286"
+          },
+          {
+            "name": "Cached Build - Code Change",
+            "value": 8891.6,
+            "unit": "ms",
+            "range": "152"
+          },
+          {
+            "name": "Cached Build - Dependency Change",
+            "value": 31876,
+            "unit": "ms",
+            "range": "14212"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Mehul Kar",
+            "username": "mehulkar",
+            "email": "mehul.kar@gmail.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "39f9fb5b96038f94800340dc187cc7752d070c7a",
+          "message": "Autofix fixable lint issues (#1748)",
+          "timestamp": "2022-08-23T23:39:49Z",
+          "url": "https://github.com/vercel/turborepo/commit/39f9fb5b96038f94800340dc187cc7752d070c7a"
+        },
+        "date": 1661300914656,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Clean Build",
+            "value": 885663,
+            "unit": "ms",
+            "range": "0"
+          },
+          {
+            "name": "Cached Build - No Change",
+            "value": 9934.2,
+            "unit": "ms",
+            "range": "471"
+          },
+          {
+            "name": "Cached Build - Code Change",
+            "value": 9636.2,
+            "unit": "ms",
+            "range": "431"
+          },
+          {
+            "name": "Cached Build - Dependency Change",
+            "value": 44130.6,
+            "unit": "ms",
+            "range": "12410"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Matt Pocock",
+            "username": "mattpocock",
+            "email": "mattpocockvoice@gmail.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "930df01acb20239aa665befafd3edf3fde0d831b",
+          "message": "[refactor] - made Features components more reusable (#1782)\n\nNo behaviour changes.\n\nDid this in order to re-use the Feature component elsewhere.",
+          "timestamp": "2022-08-31T15:18:36Z",
+          "url": "https://github.com/vercel/turborepo/commit/930df01acb20239aa665befafd3edf3fde0d831b"
+        },
+        "date": 1661961155085,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Clean Build",
+            "value": 751856,
+            "unit": "ms",
+            "range": "0"
+          },
+          {
+            "name": "Cached Build - No Change",
+            "value": 9591.4,
+            "unit": "ms",
+            "range": "1364"
+          },
+          {
+            "name": "Cached Build - Code Change",
+            "value": 9384.6,
+            "unit": "ms",
+            "range": "175"
+          },
+          {
+            "name": "Cached Build - Dependency Change",
+            "value": 36593.4,
+            "unit": "ms",
+            "range": "11260"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Nathan Hammond",
+            "username": "nathanhammond",
+            "email": "nathan.hammond@vercel.com"
+          },
+          "committer": {
+            "name": "Nathan Hammond",
+            "username": "nathanhammond",
+            "email": "nathan.hammond@vercel.com"
+          },
+          "id": "69ebb2994ddfb27cb94b65166b4ae0eccf7f0113",
+          "message": "Configure .npmrc in-project.",
+          "timestamp": "2022-09-01T01:17:37Z",
+          "url": "https://github.com/vercel/turborepo/commit/69ebb2994ddfb27cb94b65166b4ae0eccf7f0113"
+        },
+        "date": 1662004750813,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Clean Build",
+            "value": 713920,
+            "unit": "ms",
+            "range": "0"
+          },
+          {
+            "name": "Cached Build - No Change",
+            "value": 9505.4,
+            "unit": "ms",
+            "range": "1196"
+          },
+          {
+            "name": "Cached Build - Code Change",
+            "value": 9224.8,
+            "unit": "ms",
+            "range": "146"
+          },
+          {
+            "name": "Cached Build - Dependency Change",
+            "value": 36146.4,
+            "unit": "ms",
+            "range": "8549"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Nathan Hammond",
+            "username": "nathanhammond",
+            "email": "nathan.hammond@vercel.com"
+          },
+          "committer": {
+            "name": "Nathan Hammond",
+            "username": "nathanhammond",
+            "email": "nathan.hammond@vercel.com"
+          },
+          "id": "dc64b580af304bd2ccdc3c0f897f3509f79d5ee6",
+          "message": "Change npm config location to global.",
+          "timestamp": "2022-09-01T05:25:27Z",
+          "url": "https://github.com/vercel/turborepo/commit/dc64b580af304bd2ccdc3c0f897f3509f79d5ee6"
+        },
+        "date": 1662010477094,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Clean Build",
+            "value": 625562,
+            "unit": "ms",
+            "range": "0"
+          },
+          {
+            "name": "Cached Build - No Change",
+            "value": 9274.4,
+            "unit": "ms",
+            "range": "1241"
+          },
+          {
+            "name": "Cached Build - Code Change",
+            "value": 9011.6,
+            "unit": "ms",
+            "range": "166"
+          },
+          {
+            "name": "Cached Build - Dependency Change",
+            "value": 31719,
+            "unit": "ms",
+            "range": "9799"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Nathan Hammond",
+            "username": "nathanhammond",
+            "email": "nathan.hammond@vercel.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "0dc75028bad221e9836816ace92bf5395425074a",
+          "message": "Turborepo usage. (#1827)",
+          "timestamp": "2022-09-01T16:12:53Z",
+          "url": "https://github.com/vercel/turborepo/commit/0dc75028bad221e9836816ace92bf5395425074a"
+        },
+        "date": 1662048889197,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Clean Build",
+            "value": 641205,
+            "unit": "ms",
+            "range": "0"
+          },
+          {
+            "name": "Cached Build - No Change",
+            "value": 9295,
+            "unit": "ms",
+            "range": "819"
+          },
+          {
+            "name": "Cached Build - Code Change",
+            "value": 9082.2,
+            "unit": "ms",
+            "range": "131"
+          },
+          {
+            "name": "Cached Build - Dependency Change",
+            "value": 32801,
+            "unit": "ms",
+            "range": "11901"
+          }
+        ]
+      }
+    ]
+  }
+}

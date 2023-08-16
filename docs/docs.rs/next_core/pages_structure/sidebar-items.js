@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["PagesStructureItem"],"fn":["find_pages_structure","find_pages_structure_inline","get_pages_structure","get_pages_structure_inline"],"struct":["OptionPagesStructure","OptionPagesStructureVc","PagesStructure","PagesStructureItemVc","PagesStructureVc"],"type":["OptionPagesStructureReadRef","PagesStructureItemReadRef","PagesStructureReadRef"]};

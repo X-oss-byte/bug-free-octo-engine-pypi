@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["WebpackLoaderItem","WebpackLoaderItems","WebpackLoaderItemsVc","WebpackLoaders","WebpackLoadersVc"],"type":["WebpackLoaderItemsReadRef","WebpackLoadersReadRef"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["ContentSourceProcessorVc","WrappedGetContentSourceContent","WrappedGetContentSourceContentVc"],"trait":["ContentSourceProcessor"],"type":["ContentSourceProcessorTraitRef","WrappedGetContentSourceContentReadRef"]};

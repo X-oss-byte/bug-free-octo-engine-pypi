@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["AssertReactRefreshResult"],"fn":["assert_can_resolve_react_refresh","assert_can_resolve_react_refresh_inline","resolve_react_refresh","resolve_react_refresh_inline"],"struct":["AssertReactRefreshResultVc","ReactRefreshResolvingIssue","ReactRefreshResolvingIssueVc"],"type":["AssertReactRefreshResultReadRef","ReactRefreshResolvingIssueReadRef"]};

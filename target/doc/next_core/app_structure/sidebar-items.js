@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["AppStructureItem"],"fn":["find_app_structure","find_app_structure_inline","get_app_structure","get_app_structure_inline"],"struct":["AppStructure","AppStructureItemVc","AppStructureVc","OptionAppStructure","OptionAppStructureVc"],"type":["AppStructureItemReadRef","AppStructureReadRef","OptionAppStructureReadRef"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"derive":["ValueDebugFormat"],"enum":["ValueDebugFormatString"],"struct":["ValueDebugString","ValueDebugStringVc","ValueDebugVc"],"trait":["ValueDebug","ValueDebugFormat"],"type":["ValueDebugStringReadRef","ValueDebugTraitRef"]};

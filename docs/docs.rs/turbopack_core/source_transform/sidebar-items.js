@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["SourceTransformVc","SourceTransforms","SourceTransformsVc"],"trait":["SourceTransform"],"type":["SourceTransformTraitRef","SourceTransformsReadRef"]};

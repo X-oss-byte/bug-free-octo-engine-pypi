@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["PlainResolveOrigin","PlainResolveOriginVc","ResolveOriginVc"],"trait":["ResolveOrigin"],"type":["PlainResolveOriginReadRef","ResolveOriginTraitRef"]};

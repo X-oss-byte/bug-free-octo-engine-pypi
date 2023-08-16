@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":["ResolvingIssue","ResolvingIssueVc"],"type":["ResolvingIssueReadRef"]};

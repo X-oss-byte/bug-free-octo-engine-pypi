@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["register"],"struct":["MdxModuleAsset","MdxModuleAssetVc","MdxTransformOptions","MdxTransformOptionsVc"],"type":["MdxModuleAssetReadRef","MdxTransformOptionsReadRef"]};

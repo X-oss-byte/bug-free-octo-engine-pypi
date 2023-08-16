@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["early_replace_builtin","replace_builtin"]};

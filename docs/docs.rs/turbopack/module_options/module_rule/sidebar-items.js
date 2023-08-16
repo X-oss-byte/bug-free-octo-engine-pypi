@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ModuleRuleEffect","ModuleType"],"struct":["ModuleRule","ModuleRuleEffectVc","ModuleTypeVc"],"type":["ModuleRuleEffectReadRef","ModuleTypeReadRef"]};

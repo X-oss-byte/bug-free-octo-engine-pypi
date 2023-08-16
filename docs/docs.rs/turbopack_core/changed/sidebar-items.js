@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["any_content_changed","any_content_changed_inline","content_changed","content_changed_inline"]};

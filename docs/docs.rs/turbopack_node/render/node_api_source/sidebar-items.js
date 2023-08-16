@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["create_node_api_source","create_node_api_source_inline"],"struct":["NodeApiContentSource","NodeApiContentSourceVc"],"type":["NodeApiContentSourceReadRef"]};
