@@ -1,0 +1,16 @@
+/internal/turbodprotocol/*.go
+
+/demo/
+/dist/
+/dist-*
+
+# Built binaries.
+/turbo
+/turbo-new
+/turbo-new.exe
+/turbo.exe
+
+/scripts/turbo-*
+/.cram_env
+testbed
+integration_tests/**/*.t.err
