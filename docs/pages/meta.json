@@ -1,0 +1,28 @@
+{
+  "index": {
+    "title": "Home",
+    "type": "nav",
+    "hidden": true
+  },
+  "docs": {
+    "title": "Docs",
+    "type": "nav"
+  },
+  "blog": {
+    "title": "Blog",
+    "type": "nav"
+  },
+  "confirm": {
+    "title": "Confirm",
+    "type": "nav",
+    "hidden": true
+  },
+  "terms": {
+    "title": "Terms of Use",
+    "hidden": true
+  },
+  "privacy": {
+    "title": "Terms of Use",
+    "hidden": true
+  }
+}
