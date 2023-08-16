@@ -1,0 +1,31 @@
+[package]
+name = "next-core"
+version = "0.1.0"
+description = "TBD"
+license = "MPL-2.0"
+edition = "2021"
+
+[lib]
+bench = false
+
+[dependencies]
+anyhow = "1.0.47"
+indexmap = { workspace = true, features = ["serde"] }
+mime = "0.3.16"
+serde = "1.0.136"
+serde_json = "1.0.85"
+turbo-tasks = { path = "../turbo-tasks" }
+turbo-tasks-env = { path = "../turbo-tasks-env" }
+turbo-tasks-fs = { path = "../turbo-tasks-fs" }
+turbopack = { path = "../turbopack" }
+turbopack-core = { path = "../turbopack-core" }
+turbopack-dev-server = { path = "../turbopack-dev-server" }
+turbopack-ecmascript = { path = "../turbopack-ecmascript" }
+turbopack-env = { path = "../turbopack-env" }
+turbopack-node = { path = "../turbopack-node" }
+
+[build-dependencies]
+turbo-tasks-build = { path = "../turbo-tasks-build" }
+
+[features]
+next-font = []
