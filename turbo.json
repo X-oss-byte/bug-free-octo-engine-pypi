@@ -1,0 +1,59 @@
+{
+  "$schema": "./docs/public/schema.json",
+  "baseBranch": "origin/main",
+  "pipeline": {
+    "test": {
+      "outputs": ["coverage/**/*"],
+      "dependsOn": ["^build"]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "dev": {
+      "cache": false
+    },
+    "build": {
+      "outputs": ["dist/**/*", ".next/**/*"],
+      "dependsOn": ["^build"]
+    },
+    "cli#build": {
+      "outputs": ["turbo", "turbo.exe"],
+      "dependsOn": []
+    },
+    "schema": {
+      "outputs": ["public/schema.json"]
+    },
+    "create-turbo#test": {
+      "dependsOn": ["create-turbo#build"],
+      "outputs": []
+    },
+    "docs#build": {
+      "outputs": [".next/**"],
+      "dependsOn": ["^build", "docs#schema"]
+    },
+    "cli#e2e": {
+      "outputs": [],
+      "inputs": [
+        "cli/**/*.go",
+        "cli/go.mod",
+        "cli/go.sum",
+        "cli/scripts/e2e/e2e.ts"
+      ]
+    },
+    "//#run-example": {
+      "outputs": [],
+      "inputs": [
+        "examples/**/*.ts",
+        "examples/**/*.tsx",
+        "examples/**/*.json",
+        "examples/**/*.js",
+        "examples/**/*.yaml",
+        "cli/**/*.go",
+        "cli/go.mod",
+        "cli/go.sum",
+        "./scripts/run-example.sh"
+      ],
+      "dependsOn": []
+    }
+  }
+}
