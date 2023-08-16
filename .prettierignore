@@ -1,0 +1,20 @@
+.next/
+build/
+dist/
+node_modules/
+target/
+pnpm-lock.yaml
+
+__generated__/
+__fixtures__/
+
+/benchmark/large-monorepo/
+
+/crates/next-core/js/src/compiled
+/crates/turbopack/bench.json
+/crates/turbopack-tests/tests/snapshot/
+# This file has intentional trailing commas
+/crates/turbopack/tests/node-file-trace/integration/ts-package/tsconfig.json
+
+/packages/eslint-plugin-turbo/__tests__/fixtures/
+/examples/with-svelte
