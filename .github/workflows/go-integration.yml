@@ -1,0 +1,22 @@
+name: Test
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  go_integration:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup-turborepo-environment
+        with:
+          target: ubuntu
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Integration Tests
+        run: |
+          turbo run test --filter=turborepo-tests-integration --color || true
+          git diff
+        env:
+          GO_TAG: rust
