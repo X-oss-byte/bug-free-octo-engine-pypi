@@ -1,0 +1,22 @@
+[package]
+name = "turbo-malloc"
+version = "0.1.0"
+description = "TBD"
+license = "MPL-2.0"
+edition = "2021"
+autobenches = false
+
+[lib]
+bench = false
+
+[dependencies]
+mimalloc = { version = "0.1.32", optional = true }
+
+[target.'cfg(all(target_os = "linux", not(target_arch = "aarch64")))'.dependencies]
+mimalloc = { version = "0.1.32", features = [
+  "local_dynamic_tls",
+], optional = true }
+
+[features]
+custom_allocator = ["dep:mimalloc"]
+default = ["custom_allocator"]
