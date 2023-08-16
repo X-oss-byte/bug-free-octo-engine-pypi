@@ -1,0 +1,52 @@
+[package]
+name = "turborepo-lib"
+version = "0.1.0"
+edition = "2021"
+license = "MPL-2.0"
+
+[features]
+# Allows configuring a specific tls backend for reqwest.
+# See top level Cargo.toml for more details.
+native-tls = ["reqwest/native-tls", "turbo-updater/native-tls"]
+rustls-tls = ["reqwest/rustls-tls", "turbo-updater/rustls-tls"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dev-dependencies]
+assert_cmd = { workspace = true }
+itertools = { workspace = true }
+pretty_assertions = { workspace = true }
+rand = { workspace = true }
+tempfile = { workspace = true }
+
+[dependencies]
+anyhow = { workspace = true, features = ["backtrace"] }
+atty = { workspace = true }
+axum = "0.6.2"
+axum-server = "0.4.4"
+chrono = { workspace = true, features = ["serde"] }
+clap = { workspace = true, features = ["derive"] }
+clap_complete = { workspace = true }
+config = "0.13"
+console = { workspace = true }
+dialoguer = { workspace = true, features = ["fuzzy-select"] }
+dirs-next = "2.0.0"
+dunce = { workspace = true }
+env_logger = "0.10.0"
+glob-match = "0.2.1"
+hostname = "0.3.1"
+indicatif = { workspace = true }
+lazy_static = { workspace = true }
+log = { workspace = true }
+predicates = { workspace = true }
+reqwest = { workspace = true, default_features = false, features = ["json"] }
+rustc_version_runtime = "0.2.1"
+semver = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+serde_yaml = { workspace = true }
+tiny-gradient = { workspace = true }
+tokio = { workspace = true, features = ["full"] }
+webbrowser = { workspace = true }
+
+const_format = "0.2.30"
+turbo-updater = { workspace = true }
