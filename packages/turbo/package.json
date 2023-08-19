@@ -20,18 +20,18 @@
   ],
   "optionalDependencies": {
     "turbo-android-arm64": "1.4.7",
-    "turbo-darwin-64": "1.4.7",
-    "turbo-darwin-arm64": "1.4.7",
+    "turbo-darwin-64": "1.10.12",
+    "turbo-darwin-arm64": "1.10.12",
     "turbo-freebsd-64": "1.4.7",
     "turbo-freebsd-arm64": "1.4.7",
     "turbo-linux-32": "1.4.7",
-    "turbo-linux-64": "1.4.7",
+    "turbo-linux-64": "1.10.12",
     "turbo-linux-arm": "1.4.7",
-    "turbo-linux-arm64": "1.4.7",
+    "turbo-linux-arm64": "1.10.12",
     "turbo-linux-mips64le": "1.4.7",
     "turbo-linux-ppc64le": "1.4.7",
     "turbo-windows-32": "1.4.7",
-    "turbo-windows-64": "1.4.7",
-    "turbo-windows-arm64": "1.4.7"
+    "turbo-windows-64": "1.10.12",
+    "turbo-windows-arm64": "1.10.12"
   }
 }
