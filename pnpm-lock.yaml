@@ -252,7 +252,7 @@ importers:
 
   packages/turbo-ignore:
     specifiers:
-      '@manypkg/find-root': ^1.1.0
+      '@manypkg/find-root': ^2.0.0
       '@types/jest': ^27.4.0
       '@types/node': ^16.11.12
       eslint: ^8.20.0
@@ -263,7 +263,7 @@ importers:
       turbo-utils: workspace:*
       typescript: ^4.7.4
     devDependencies:
-      '@manypkg/find-root': 1.1.0
+      '@manypkg/find-root': 2.2.1
       '@types/jest': 27.5.2
       '@types/node': 16.11.44
       eslint: 8.23.0
@@ -276,7 +276,7 @@ importers:
 
   packages/turbo-utils:
     specifiers:
-      '@manypkg/find-root': ^1.1.0
+      '@manypkg/find-root': ^2.0.0
       '@types/jest': ^27.4.0
       '@types/node': ^16.11.12
       eslint: ^8.23.0
@@ -286,7 +286,7 @@ importers:
       tsup: ^5.12.1
       typescript: ^4.7.4
     devDependencies:
-      '@manypkg/find-root': 1.1.0
+      '@manypkg/find-root': 2.2.1
       '@types/jest': 27.5.2
       '@types/node': 16.11.44
       eslint: 8.23.0
@@ -1091,13 +1091,23 @@ packages:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
 
-  /@manypkg/find-root/1.1.0:
-    resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
+  /@manypkg/find-root/2.2.1:
+    resolution: {integrity: sha512-34NlypD5mmTY65cFAK7QPgY5Tzt0qXR4ZRXdg97xAlkiLuwXUPBEXy5Hsqzd+7S2acsLxUz6Cs50rlDZQr4xUA==}
+    engines: {node: '>=14.18.0'}
     dependencies:
-      '@babel/runtime': 7.18.9
-      '@types/node': 12.20.55
+      '@manypkg/tools': 1.1.0
       find-up: 4.1.0
       fs-extra: 8.1.0
+    dev: true
+
+  /@manypkg/tools/1.1.0:
+    resolution: {integrity: sha512-SkAyKAByB9l93Slyg8AUHGuM2kjvWioUTCckT/03J09jYnfEzMO/wSXmEhnKGYs6qx9De8TH4yJCl0Y9lRgnyQ==}
+    engines: {node: '>=14.18.0'}
+    dependencies:
+      fs-extra: 8.1.0
+      globby: 11.1.0
+      jju: 1.4.0
+      read-yaml-file: 1.1.0
     dev: true
 
   /@mdx-js/mdx/2.1.3:
@@ -1614,10 +1624,6 @@ packages:
   /@types/ms/0.7.31:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
     dev: false
-
-  /@types/node/12.20.55:
-    resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
-    dev: true
 
   /@types/node/16.11.44:
     resolution: {integrity: sha512-gwP6+QDgL5TDBIWh1lbYh3EFPU11pa+8xcamcsA3ROkp3A9X+/3Y5cRgq93VPEEE+CGfxlQnqkg1kkWGBgh3fw==}
@@ -5380,6 +5386,10 @@ packages:
       - utf-8-validate
     dev: true
 
+  /jju/1.4.0:
+    resolution: {integrity: sha512-8wb9Yw966OSxApiCt0K3yNJL8pnNeIv+OEq2YMidz4FKP6nonSRoOXc80iXY4JaN2FC11B9qsNmDsm+ZOfMROA==}
+    dev: true
+
   /joycon/3.1.1:
     resolution: {integrity: sha512-34wB/Y7MW7bzjKRjUKTa46I2Z7eV62Rkhva+KkopW7Qvv/OSWBqvkSY7vusOPrNuZcUG3tApvdVgNB8POj3SPw==}
     engines: {node: '>=10'}
@@ -6968,6 +6978,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /pify/4.0.1:
+    resolution: {integrity: sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==}
+    engines: {node: '>=6'}
+    dev: true
+
   /pirates/4.0.5:
     resolution: {integrity: sha512-8V9+HQPupnaXMA23c5hvl69zXvTwTzyAYasnkb0Tts4XvO4CliqONMOnvlq26rkhLC3nWDFBJf73LU1e1VZLaQ==}
     engines: {node: '>= 6'}
@@ -7246,6 +7261,16 @@ packages:
       parse-json: 5.2.0
       type-fest: 0.6.0
     dev: false
+
+  /read-yaml-file/1.1.0:
+    resolution: {integrity: sha512-VIMnQi/Z4HT2Fxuwg5KrY174U1VdUIASQVWXXyqtNRtxSr9IYkn1rsI6Tb6HsrHCmB7gVpNwX6JxPTHcH6IoTA==}
+    engines: {node: '>=6'}
+    dependencies:
+      graceful-fs: 4.2.10
+      js-yaml: 3.14.1
+      pify: 4.0.1
+      strip-bom: 3.0.0
+    dev: true
 
   /readable-stream/2.3.7:
     resolution: {integrity: sha512-Ebho8K4jIbHAxnuxi7o42OrZgF/ZTNcsZj6nRKyUmkhLFq8CHItp/fy6hQZuZmP/n3yZ9VBUbp4zz/mX8hmYPw==}

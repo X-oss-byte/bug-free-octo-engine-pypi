@@ -23,7 +23,7 @@
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
-    "@manypkg/find-root": "^1.1.0",
+    "@manypkg/find-root": "^2.0.0",
     "@types/jest": "^27.4.0",
     "@types/node": "^16.11.12",
     "eslint": "^8.23.0",
