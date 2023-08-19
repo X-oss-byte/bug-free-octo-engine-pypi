@@ -26,7 +26,7 @@
   "devDependencies": {
     "typescript": "^4.7.4",
     "turbo-utils": "workspace:*",
-    "tsup": "^5.12.1",
+    "tsup": "^7.0.0",
     "tsconfig": "workspace:*",
     "ts-jest": "^27.1.1",
     "jest": "^27.4.3",

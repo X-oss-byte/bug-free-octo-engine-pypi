@@ -28,7 +28,7 @@
     "jest": "^27.4.3",
     "ts-jest": "^27.1.1",
     "tsconfig": "workspace:*",
-    "tsup": "^6.2.0",
+    "tsup": "^7.0.0",
     "turbo-utils": "workspace:*",
     "typescript": "^4.7.4"
   },
