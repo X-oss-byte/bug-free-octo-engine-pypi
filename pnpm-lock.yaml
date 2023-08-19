@@ -19,12 +19,12 @@ importers:
       '@types/node': ^16.11.49
       esbuild: ^0.15.0
       esbuild-register: ^3.3.2
-      fs-extra: ^10.0.0
+      fs-extra: ^11.0.0
       ndjson: ^2.0.0
     dependencies:
       esbuild: 0.15.6
       esbuild-register: 3.3.3_esbuild@0.15.6
-      fs-extra: 10.1.0
+      fs-extra: 11.1.1
       ndjson: 2.0.0
     devDependencies:
       '@types/node': 16.11.56
@@ -36,7 +36,7 @@ importers:
       esbuild-register: ^3.3.2
       execa: ^5.0.0
       faker: ^5.1.0
-      fs-extra: ^9.1.0
+      fs-extra: ^11.0.0
       globby: 11.1.0
       ngraph.generators: ^19.3.0
       shelljs: ^0.8.4
@@ -47,7 +47,7 @@ importers:
       esbuild-register: 3.3.3_esbuild@0.15.6
       execa: 5.1.1
       faker: 5.5.3
-      fs-extra: 9.1.0
+      fs-extra: 11.1.1
       globby: 11.1.0
       ngraph.generators: 19.3.1
       shelljs: 0.8.5
@@ -200,7 +200,7 @@ importers:
   packages/turbo-codemod:
     specifiers:
       '@types/chalk-animation': ^1.6.0
-      '@types/fs-extra': ^9.0.13
+      '@types/fs-extra': ^11.0.0
       '@types/gradient-string': ^1.1.2
       '@types/inquirer': ^7.3.1
       '@types/node': ^16.11.12
@@ -209,7 +209,7 @@ importers:
       eslint: ^7.23.0
       execa: 5.1.1
       find-up: 4.1.0
-      fs-extra: ^10.0.0
+      fs-extra: ^11.0.0
       globby: 11.1.0
       gradient-string: ^2.0.0
       inquirer: ^8.0.0
@@ -227,7 +227,7 @@ importers:
       chalk: 2.4.2
       execa: 5.1.1
       find-up: 4.1.0
-      fs-extra: 10.1.0
+      fs-extra: 11.1.1
       globby: 11.1.0
       gradient-string: 2.0.1
       inquirer: 8.2.4
@@ -239,7 +239,7 @@ importers:
       update-check: 1.5.4
     devDependencies:
       '@types/chalk-animation': 1.6.1
-      '@types/fs-extra': 9.0.13
+      '@types/fs-extra': 11.0.1
       '@types/gradient-string': 1.1.2
       '@types/inquirer': 7.3.3
       '@types/node': 16.11.44
@@ -1520,10 +1520,11 @@ packages:
   /@types/estree/1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
 
-  /@types/fs-extra/9.0.13:
-    resolution: {integrity: sha512-nEnwB++1u5lVDM2UI4c1+5R+FYaKfaAzS4OococimjVm3nQw3TuzH5UNsocrcTBbhnerblyHj4A49qXbIiZdpA==}
+  /@types/fs-extra/11.0.1:
+    resolution: {integrity: sha512-MxObHvNl4A69ofaTRU8DFqvgzzv8s9yRtaPPm5gud9HDNvpB3GPQFvNuTWAI59B9huVGV5jXYJwbCsmBsOGYWA==}
     dependencies:
-      '@types/node': 16.11.44
+      '@types/jsonfile': 6.1.1
+      '@types/node': 16.11.56
     dev: true
 
   /@types/glob/7.2.0:
@@ -1587,6 +1588,12 @@ packages:
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
+    dev: true
+
+  /@types/jsonfile/6.1.1:
+    resolution: {integrity: sha512-GSgiRCVeapDN+3pqA35IkQwasaCh/0YFH5dEF6S88iDvEn901DjOeH3/QPY+XYP1DFzDZPvIvfeEgk+7br5png==}
+    dependencies:
+      '@types/node': 16.11.56
     dev: true
 
   /@types/mdast/3.0.10:
@@ -2014,11 +2021,6 @@ packages:
 
   /asynckit/0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
-
-  /at-least-node/1.0.0:
-    resolution: {integrity: sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==}
-    engines: {node: '>= 4.0.0'}
-    dev: true
 
   /atob/2.1.2:
     resolution: {integrity: sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==}
@@ -4102,14 +4104,13 @@ packages:
       map-cache: 0.2.2
     dev: true
 
-  /fs-extra/10.1.0:
-    resolution: {integrity: sha512-oRXApq54ETRj4eMiFzGnHWGy+zo5raudjuxN0b8H7s/RU2oW0Wvsx9O0ACRN/kRq9E8Vu/ReskGB5o3ji+FzHQ==}
-    engines: {node: '>=12'}
+  /fs-extra/11.1.1:
+    resolution: {integrity: sha512-MGIE4HOvQCeUCzmlHs0vXpih4ysz4wg9qiSAu6cd42lVwPbTM1TjV7RusoyQqMmk/95gdQZX72u+YW+c3eEpFQ==}
+    engines: {node: '>=14.14'}
     dependencies:
       graceful-fs: 4.2.10
       jsonfile: 6.1.0
       universalify: 2.0.0
-    dev: false
 
   /fs-extra/8.1.0:
     resolution: {integrity: sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==}
@@ -4118,16 +4119,6 @@ packages:
       graceful-fs: 4.2.10
       jsonfile: 4.0.0
       universalify: 0.1.2
-    dev: true
-
-  /fs-extra/9.1.0:
-    resolution: {integrity: sha512-hcg3ZmepS30/7BSFqRvoo3DOMQu7IjqxO5nCDt+zM9XWjb33Wg7ziNT+Qvqbuc3+gWpzO02JubVyk2G4Zvo1OQ==}
-    engines: {node: '>=10'}
-    dependencies:
-      at-least-node: 1.0.0
-      graceful-fs: 4.2.10
-      jsonfile: 6.1.0
-      universalify: 2.0.0
     dev: true
 
   /fs.realpath/1.0.0:
