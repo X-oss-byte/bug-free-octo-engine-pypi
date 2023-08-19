@@ -63,7 +63,7 @@ importers:
       autoprefixer: 10.4.8
       axios: 0.27.2
       classnames: 2.3.2
-      copy-to-clipboard: 3.3.2
+      copy-to-clipboard: 3.3.3
       csstype: 3.1.1
       eslint: 8.10.0
       eslint-config-next: 12.3.0
@@ -86,7 +86,7 @@ importers:
       '@react-aria/ssr': 3.3.0_react@17.0.2
       axios: 0.27.2
       classnames: 2.3.2
-      copy-to-clipboard: 3.3.2
+      copy-to-clipboard: 3.3.3
       js-cookie: 3.0.1
       next: 12.3.0_2f3qgkpmmpou2hyqrmueifddme
       next-themes: 0.2.0_5cnqhqacu5mt2w4dmejsl6hu6y
@@ -2572,8 +2572,8 @@ packages:
       - supports-color
     dev: true
 
-  /copy-to-clipboard/3.3.2:
-    resolution: {integrity: sha512-Vme1Z6RUDzrb6xAI7EZlVZ5uvOk2F//GaxKUxajDqm9LhOVM1inxNAD2vy+UZDYsd0uyA9s7b3/FVZPSxqrCfg==}
+  /copy-to-clipboard/3.3.3:
+    resolution: {integrity: sha512-2KV8NhB5JqC3ky0r9PMCAZKbUHSwtEo4CwCs0KXgruG43gX5PMqDEBbVU4OUzw2MuAWUfsuFmWvEKG5QRfSnJA==}
     dependencies:
       toggle-selection: 1.0.6
     dev: false
