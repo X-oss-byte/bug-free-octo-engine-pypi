@@ -20,7 +20,7 @@ require (
 	github.com/hashicorp/go-gatedio v0.5.0
 	github.com/hashicorp/go-hclog v1.2.1
 	github.com/hashicorp/go-retryablehttp v0.6.8
-	github.com/iseki0/go-yarnlock v0.0.2-0.20220905015017-a2a90751cdfa
+	github.com/iseki0/go-yarnlock 191c5d8e2550
 	github.com/karrick/godirwalk v1.16.1
 	github.com/mattn/go-isatty v0.0.14
 	github.com/mitchellh/cli v1.1.2
