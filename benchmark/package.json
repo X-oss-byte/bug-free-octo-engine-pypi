@@ -11,6 +11,6 @@
     "benchmark": "node -r esbuild-register src/index.ts"
   },
   "devDependencies": {
-    "@types/node": "^16.11.49"
+    "@types/node": "^18.0.0"
   }
 }
