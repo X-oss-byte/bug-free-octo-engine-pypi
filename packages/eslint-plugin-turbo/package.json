@@ -30,7 +30,7 @@
     "tsconfig": "workspace:*",
     "tsup": "^6.2.0",
     "turbo-utils": "workspace:*",
-    "typescript": "^4.7.4"
+    "typescript": "^5.0.0"
   },
   "peerDependencies": {
     "eslint": "^7.23.0 || ^8.0.0"
