@@ -57,7 +57,7 @@ importers:
     specifiers:
       '@babel/core': 7.19.1
       '@heroicons/react': 1.0.6
-      '@react-aria/ssr': 3.3.0
+      '@react-aria/ssr': 3.7.1
       '@types/node': ^16.11.12
       '@types/react': 17.0.50
       autoprefixer: 10.4.8
@@ -83,7 +83,7 @@ importers:
       typescript: 4.8.3
     dependencies:
       '@heroicons/react': 1.0.6_react@17.0.2
-      '@react-aria/ssr': 3.3.0_react@17.0.2
+      '@react-aria/ssr': 3.7.1_react@17.0.2
       axios: 0.27.2
       classnames: 2.3.2
       copy-to-clipboard: 3.3.2
@@ -1423,12 +1423,13 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /@react-aria/ssr/3.3.0_react@17.0.2:
-    resolution: {integrity: sha512-yNqUDuOVZIUGP81R87BJVi/ZUZp/nYOBXbPsRe7oltJOfErQZD+UezMpw4vM2KRz18cURffvmC8tJ6JTeyDtaQ==}
+  /@react-aria/ssr/3.7.1_react@17.0.2:
+    resolution: {integrity: sha512-ovVPSD1WlRpZHt7GI9DqJrWG3OIYS+NXQ9y5HIewMJpSe+jPQmMQfyRmgX4EnvmxSlp0u04Wg/7oItcoSIb/RA==}
+    engines: {node: '>= 12'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@babel/runtime': 7.18.9
+      '@swc/helpers': 0.5.1
       react: 17.0.2
     dev: false
 
@@ -1450,6 +1451,12 @@ packages:
 
   /@swc/helpers/0.4.11:
     resolution: {integrity: sha512-rEUrBSGIoSFuYxwBYtlUFMlE2CwGhmW+w9355/5oduSw8e5h2+Tj4UrAGNNgP9915++wj5vkQo0UuOBqOAq4nw==}
+    dependencies:
+      tslib: 2.4.0
+    dev: false
+
+  /@swc/helpers/0.5.1:
+    resolution: {integrity: sha512-sJ902EfIzn1Fa+qYmjdQqh8tPsoxyBz+8yBKC2HKUxyezKJFwPGOn7pv4WY6QuQW//ySQi5lJjA/ZT9sNWWNTg==}
     dependencies:
       tslib: 2.4.0
     dev: false
