@@ -38,7 +38,7 @@ importers:
       faker: ^5.1.0
       fs-extra: ^9.1.0
       globby: 11.1.0
-      ngraph.generators: ^19.3.0
+      ngraph.generators: ^20.0.0
       shelljs: ^0.8.4
       uvu: ^0.5.3
     devDependencies:
@@ -49,7 +49,7 @@ importers:
       faker: 5.5.3
       fs-extra: 9.1.0
       globby: 11.1.0
-      ngraph.generators: 19.3.1
+      ngraph.generators: 20.1.0
       shelljs: 0.8.5
       uvu: 0.5.6
 
@@ -6381,6 +6381,12 @@ packages:
   /minimist/1.2.6:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
 
+  /miserables/2.0.0:
+    resolution: {integrity: sha512-J+4obMHbesciklE0SoVy4EJFsgeBW2RsRzrhBWGFhpBDcxCSJ3igSzDVz8SUaPx5PQaduImkt5UWus2Yx0a5/A==}
+    dependencies:
+      ngraph.graph: 19.1.0
+    dev: true
+
   /mixin-deep/1.3.2:
     resolution: {integrity: sha512-WRoDn//mXBiJ1H40rqa3vH0toePwSsGb45iInWlTySa+Uu4k3tYUSxa2v1KqAiLtvlrSzaExqS1gtk96A9zvEA==}
     engines: {node: '>=0.10.0'}
@@ -6582,15 +6588,22 @@ packages:
     resolution: {integrity: sha512-JsUbEOzANskax+WSYiAPETemLWYXmixuPAlmZmhIbIj6FH/WDgEGCGnRwUQBK0GjOnVm8Ui+e5IJ+5VZ4e32eQ==}
     dev: true
 
-  /ngraph.generators/19.3.1:
-    resolution: {integrity: sha512-fvWtbCDE5/6aJIEOXOD1cE0vVCWCsROVqXPxD5Pe4RspeFz6tdr37ZkwpT+nUEp80i3fQ7aAlYMMLhEpO/7jgg==}
+  /ngraph.generators/20.1.0:
+    resolution: {integrity: sha512-z/+R7HkNTFVgf5+o6KANgoKyr4FI9uiY+vSLYIzcLaTpz1scsCQuVbp+WsTf1MnJfeizlRjREhbgD4oeBZPqNA==}
     dependencies:
-      ngraph.graph: 19.1.0
+      miserables: 2.0.0
+      ngraph.graph: 20.0.1
       ngraph.random: 1.1.0
     dev: true
 
   /ngraph.graph/19.1.0:
     resolution: {integrity: sha512-9cws84qfPkrYa7BaBtT+KgZfLXrd6pNL9Gl5Do+MBO/0Hm6rOM7qK78MZaO1uEoIK6p2pgUs6lu29zn/6tP59w==}
+    dependencies:
+      ngraph.events: 1.2.2
+    dev: true
+
+  /ngraph.graph/20.0.1:
+    resolution: {integrity: sha512-VFsQ+EMkT+7lcJO1QP8Ik3w64WbHJl27Q53EO9hiFU9CRyxJ8HfcXtfWz/U8okuoYKDctbciL6pX3vG5dt1rYA==}
     dependencies:
       ngraph.events: 1.2.2
     dev: true
