@@ -38,7 +38,7 @@ jobs:
           enable-corepack: false
 
       - name: Install GoReleaser
-        uses: goreleaser/goreleaser-action@v3
+        uses: goreleaser/goreleaser-action@v4
         with:
           distribution: goreleaser-pro
           version: latest
@@ -101,7 +101,7 @@ jobs:
       #   run: pnpm install --filter=turbo-monorepo
 
       - name: Install GoReleaser
-        uses: goreleaser/goreleaser-action@v3
+        uses: goreleaser/goreleaser-action@v4
         with:
           distribution: goreleaser-pro
           version: latest
@@ -136,7 +136,7 @@ jobs:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Install GoReleaser
-        uses: goreleaser/goreleaser-action@v3
+        uses: goreleaser/goreleaser-action@v4
         with:
           distribution: goreleaser-pro
           version: latest
