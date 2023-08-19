@@ -3,7 +3,7 @@ module github.com/vercel/turborepo/cli
 go 1.18
 
 require (
-	github.com/AlecAivazis/survey/v2 v2.3.5
+	github.com/AlecAivazis/survey/v2 v2.3.7
 	github.com/Masterminds/semver v1.5.0
 	github.com/adrg/xdg v0.3.3
 	github.com/andybalholm/crlf v0.0.0-20171020200849-670099aa064f
