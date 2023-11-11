@@ -61,7 +61,7 @@ importers:
       '@types/node': ^16.11.12
       '@types/react': 17.0.50
       autoprefixer: 10.4.8
-      axios: 0.27.2
+      axios: 1.6.0
       classnames: 2.3.2
       copy-to-clipboard: 3.3.2
       csstype: 3.1.1
@@ -84,7 +84,7 @@ importers:
     dependencies:
       '@heroicons/react': 1.0.6_react@17.0.2
       '@react-aria/ssr': 3.3.0_react@17.0.2
-      axios: 0.27.2
+      axios: 1.6.0
       classnames: 2.3.2
       copy-to-clipboard: 3.3.2
       js-cookie: 3.0.1
@@ -2047,11 +2047,12 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /axios/0.27.2:
-    resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
+  /axios/1.6.0:
+    resolution: {integrity: sha512-EZ1DYihju9pwVB+jg67ogm+Tmqc6JmhamRN6I4Zt8DfZu5lbcQGw3ozH9lFejSJgs/ibaef3A9PMXPLeefFGJg==}
     dependencies:
       follow-redirects: 1.15.1
       form-data: 4.0.0
+      proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
     dev: false
@@ -7132,6 +7133,10 @@ packages:
 
   /property-information/6.1.1:
     resolution: {integrity: sha512-hrzC564QIl0r0vy4l6MvRLhafmUowhO/O3KgVSoXIbbA2Sz4j8HGpJc6T2cubRVwMwpdiG/vKGfhT4IixmKN9w==}
+    dev: false
+
+  /proxy-from-env/1.1.0:
+    resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
     dev: false
 
   /pseudomap/1.0.2:
