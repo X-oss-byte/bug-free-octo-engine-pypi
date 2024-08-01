@@ -22,7 +22,7 @@ require (
 	github.com/hashicorp/go-retryablehttp v0.6.8
 	github.com/iseki0/go-yarnlock v0.0.2-0.20220905015017-a2a90751cdfa
 	github.com/karrick/godirwalk v1.16.1
-	github.com/mattn/go-isatty v0.0.14
+	github.com/mattn/go-isatty v0.0.20
 	github.com/mitchellh/cli v1.1.2
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/mitchellh/mapstructure v1.5.0
