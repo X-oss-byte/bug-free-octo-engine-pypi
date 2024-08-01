@@ -10,7 +10,7 @@ require (
 	github.com/briandowns/spinner v1.18.1
 	github.com/cenkalti/backoff/v4 v4.1.3
 	github.com/deckarep/golang-set v1.8.0
-	github.com/fatih/color v1.13.0
+	github.com/fatih/color v1.17.0
 	github.com/fsnotify/fsevents v0.1.1
 	github.com/fsnotify/fsnotify v1.5.4
 	github.com/gobwas/glob v0.2.3
