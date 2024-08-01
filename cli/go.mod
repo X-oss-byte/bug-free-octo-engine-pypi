@@ -8,7 +8,7 @@ require (
 	github.com/adrg/xdg v0.3.3
 	github.com/andybalholm/crlf v0.0.0-20171020200849-670099aa064f
 	github.com/briandowns/spinner v1.18.1
-	github.com/cenkalti/backoff/v4 v4.1.3
+	github.com/cenkalti/backoff/v4 v4.3.0
 	github.com/deckarep/golang-set v1.8.0
 	github.com/fatih/color v1.13.0
 	github.com/fsnotify/fsevents v0.1.1
