@@ -35,7 +35,7 @@
     "autoprefixer": "10.4.8",
     "csstype": "3.1.1",
     "eslint": "8.10.0",
-    "eslint-config-next": "12.3.0",
+    "eslint-config-next": "14.2.15",
     "eslint-config-prettier": "8.5.0",
     "postcss": "8.4.16",
     "tailwindcss": "3.1.8",
