@@ -24,7 +24,7 @@
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
-    "typescript": "^4.7.4",
+    "typescript": "^5.0.0",
     "turbo-utils": "workspace:*",
     "tsup": "^5.12.1",
     "tsconfig": "workspace:*",
