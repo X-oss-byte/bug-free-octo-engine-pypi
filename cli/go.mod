@@ -7,7 +7,7 @@ require (
 	github.com/Masterminds/semver v1.5.0
 	github.com/adrg/xdg v0.3.3
 	github.com/andybalholm/crlf v0.0.0-20171020200849-670099aa064f
-	github.com/briandowns/spinner v1.18.1
+	github.com/briandowns/spinner v1.23.2
 	github.com/cenkalti/backoff/v4 v4.1.3
 	github.com/deckarep/golang-set v1.8.0
 	github.com/fatih/color v1.13.0
